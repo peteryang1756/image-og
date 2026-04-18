@@ -1,0 +1,35 @@
+{
+  "name": "image-og",
+  "version": "1.0.0",
+  "description": "Cloudflare Worker that generates OG images for blog posts",
+  "type": "module",
+  "main": "dist/index.mjs",
+  "scripts": {
+    "dev": "wrangler dev",
+    "start": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "check": "tsc --noEmit",
+    "test": "npm run check"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peteryang1756/image-og.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/peteryang1756/image-og/issues"
+  },
+  "homepage": "https://github.com/peteryang1756/image-og#readme",
+  "dependencies": {
+    "@vercel/og": "^0.11.1",
+    "react": "^19.2.5"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260418.1",
+    "@types/react": "^19.2.14",
+    "typescript": "^6.0.3",
+    "wrangler": "^4.83.0"
+  }
+}
