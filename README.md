@@ -20,3 +20,6 @@ npm run dev
 ```sh
 npm run deploy
 ```
+
+- The Worker name is set to `image-og7` to match the Cloudflare project.
+- The `wrangler.toml` includes the Cloudflare account ID used by CI; update it if you deploy from a different account.
