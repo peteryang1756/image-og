@@ -18,7 +18,7 @@ type ParsedParams = {
 };
 
 function parseParams(url: URL): ParsedParams {
-  const rawPath = decodeURIComponent(url.pathname.replace(/^\/api\/?/, ''));
+  const rawPath = safeDecodeURIComponent(url.pathname.replace(/^\/api\/?/, ''));
   const rawQuerySubject = url.searchParams.get('subject') ?? '';
   const pathSubject = rawPath.replace(/^subject:?/i, '').trim();
   const subject = (pathSubject || rawQuerySubject || 'Untitled post').slice(0, 180);
@@ -27,6 +27,14 @@ function parseParams(url: URL): ParsedParams {
   const timeLabel = formatTimeLabel(timeParam);
 
   return { subject, timeLabel };
+}
+
+function safeDecodeURIComponent(value: string): string {
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    return value;
+  }
 }
 
 function formatTimeLabel(timeParam: string | null): string {
